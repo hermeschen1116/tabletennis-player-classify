@@ -1,0 +1,20 @@
+repos:
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.4.26
+    hooks:
+      - id: uv-lock
+        stages: [pre-commit]
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.7.0
+    hooks:
+      - id: ruff
+        args: [--fix]
+        always_run: true
+        stages: [pre-commit]
+      - id: ruff
+        args: [--select, I, --fix]
+        always_run: true
+        stages: [pre-commit]
+      - id: ruff-format
+        always_run: true
+        stages: [pre-commit]

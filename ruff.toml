@@ -1,0 +1,18 @@
+cache-dir = "~/.cache/ruff"
+fix = true
+line-length = 120
+preview = true
+
+[analyze]
+detect-string-imports = true
+
+[format]
+docstring-code-format = true
+indent-style = "tab"
+line-ending = "lf"
+quote-style = "double"
+skip-magic-trailing-comma = true
+
+[lint.isort]
+case-sensitive = true
+combine-as-imports = true
