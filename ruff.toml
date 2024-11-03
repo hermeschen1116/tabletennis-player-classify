@@ -13,6 +13,9 @@ line-ending = "lf"
 quote-style = "double"
 skip-magic-trailing-comma = true
 
+[lint]
+unfixable = ["F401"]
+
 [lint.isort]
 case-sensitive = true
 combine-as-imports = true
