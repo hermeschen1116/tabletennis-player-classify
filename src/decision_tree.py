@@ -49,7 +49,7 @@ for label in label_columns:
 		classifier, hyperparameter_grid, n_iter=100, cv=5, scoring=scoring, n_jobs=-1, verbose=10
 	)
 
-	tuner.fit(train_data[label], train_label[label])
+	tuner.fit(train_data, train_label[label])
 
 	best_classifiers[label] = tuner.best_estimator_
 
