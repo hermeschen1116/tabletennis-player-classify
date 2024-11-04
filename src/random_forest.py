@@ -8,7 +8,7 @@ from sklearn.model_selection import RandomizedSearchCV
 from sklearn.preprocessing import MinMaxScaler
 
 dataset = load_dataset(
-	"csv", data_dir="../data", data_files={"train": "train.csv", "test": "test.csv"}, keep_in_memory=True, num_proc=8
+	"csv", data_dir="data", data_files={"train": "train.csv", "test": "test.csv"}, keep_in_memory=True, num_proc=8
 )
 
 index_columns: list = ["data_ID", "player_ID"]

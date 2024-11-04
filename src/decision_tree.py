@@ -8,7 +8,7 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.tree import DecisionTreeClassifier
 
 dataset = load_dataset(
-	"csv", data_dir="../data", data_files={"train": "train.csv", "test": "test.csv"}, keep_in_memory=True, num_proc=8
+	"csv", data_dir="data", data_files={"train": "train.csv", "test": "test.csv"}, keep_in_memory=True, num_proc=8
 )
 
 dataset_split = dataset["train"].train_test_split(test_size=0.1, keep_in_memory=True)
