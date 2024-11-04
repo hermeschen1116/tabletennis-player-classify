@@ -5,7 +5,7 @@ import polars
 from datasets import Dataset, load_dataset
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import RandomizedSearchCV
-from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import StandardScaler
 
 dataset = load_dataset(
 	"csv", data_dir="data", data_files={"train": "train.csv", "test": "test.csv"}, keep_in_memory=True, num_proc=8
@@ -15,7 +15,7 @@ index_columns: list = ["data_ID", "player_ID"]
 label_columns: list = ["gender", "hold racket handed", "play years", "level"]
 data_columns: list = list(set(dataset["train"].column_names).difference(set(index_columns + label_columns)))
 
-scaler = MinMaxScaler((0, 1))
+scaler = StandardScaler((0, 1))
 scaler.fit(dataset["train"].to_polars()[data_columns].to_numpy())
 
 train_dataset: polars.DataFrame = dataset["train"].to_polars()
