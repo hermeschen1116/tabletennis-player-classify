@@ -16,10 +16,9 @@ label_columns: list = ["gender", "hold racket handed", "play years", "level"]
 data_columns: list = list(set(dataset["train"].column_names).difference(set(index_columns + label_columns)))
 
 scaler = MinMaxScaler()
-scaler.fit(dataset["train"].to_polars()[data_columns].to_numpy())
 
 train_dataset: polars.DataFrame = dataset["train"].to_polars()
-train_data: numpy.ndarray = scaler.transform(train_dataset[data_columns].to_numpy())
+train_data: numpy.ndarray = scaler.fit_transform(train_dataset[data_columns].to_numpy())
 train_label: dict[str, numpy.ndarray] = {label: train_dataset[label].to_numpy() for label in label_columns}
 
 hyperparameter_grid: dict[str, list[Any]] = {
